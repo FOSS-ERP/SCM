@@ -66,7 +66,7 @@ app_license = "mit"
 
 # Generators
 # ----------
-
+after_migrate = "scm.scm.setup.custom_field.setup_custom_fields"
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
@@ -144,7 +144,11 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
-
+doc_events = {
+    "GL Entry" : {
+        "validate" : "scm.scm.gl_entry.validate"
+    }
+}
 # Scheduled Tasks
 # ---------------
 

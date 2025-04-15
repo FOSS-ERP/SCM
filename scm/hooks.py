@@ -44,6 +44,12 @@ app_license = "mit"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Journal Entry":"public/js/journal_entry.js",
+}
+
+
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -147,6 +153,10 @@ after_migrate = "scm.scm.setup.custom_field.setup_custom_fields"
 doc_events = {
     "GL Entry" : {
         "validate" : "scm.scm.gl_entry.validate"
+    },
+    "Accounting Dimension" : {
+        "validate" : "scm.events.accounting_dimention.make_dimension_in_accounting_doctypes",
+         "on_trash": "scm.events.accounting_dimention.delete_accounting_dimension_from_journal_entry",
     }
 }
 # Scheduled Tasks

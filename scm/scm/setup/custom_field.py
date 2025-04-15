@@ -14,7 +14,21 @@ def setup_custom_fields():
                 "in_list_view": 1,
 
             }
+        ],
+        ####----------------------------------------------------------------------------------------------------------
+        ## New section in Journal Entry..
+        "Journal Entry": [
+            {
+                "fieldname" : "accounting_dimensions_section",
+                "label" : "Accounting Dimentions",
+                "fieldtype" : "Section Break",
+                "insert_after": "apply_tds",
+                "collapsible":1,
+
+            }
+
         ]
+        ####----------------------------------------------------------------------------------------------------------
     }
     
     create_custom_fields(custom_fields)

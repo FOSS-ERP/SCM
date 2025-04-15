@@ -153,6 +153,10 @@ after_migrate = "scm.scm.setup.custom_field.setup_custom_fields"
 doc_events = {
     "GL Entry" : {
         "validate" : "scm.scm.gl_entry.validate"
+    },
+    "Accounting Dimension" : {
+        "validate" : "scm.events.accounting_dimention.make_dimension_in_accounting_doctypes",
+         "on_trash": "scm.events.accounting_dimention.delete_accounting_dimension_from_journal_entry",
     }
 }
 # Scheduled Tasks

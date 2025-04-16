@@ -11,7 +11,7 @@ frappe.ui.form.on('Journal Entry', {
                 // Fetch Accounting Dimension Details for the current company and parent dimension
                 frappe.db.get_list('Accounting Dimension Detail', {
                     filters: { company: frm.doc.company, parent: dim.name },
-                    fields: ['custom_editable', 'self_balancing_ledger'],
+                    fields: ['self_balancing_ledger'],
                     parent_doctype: "Accounting Dimension"
                 }).then(child_records => {
 

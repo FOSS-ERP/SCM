@@ -28,8 +28,10 @@ frappe.ui.form.on('Journal Entry', {
                     
                     if(read_only) { 
                         frm.set_df_property(custom_fieldname, 'read_only', 0);
+                        frm.set_df_property(custom_fieldname, 'reqd', 1);
                     } else {
                         frm.set_df_property(custom_fieldname, 'read_only', 1);
+                        frm.set_df_property(custom_fieldname, 'reqd', 0);
                     }
                     
                     console.log("Setting field:", fieldname, "Read-Only:", read_only);

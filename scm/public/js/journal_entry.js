@@ -11,7 +11,7 @@ frappe.ui.form.on('Journal Entry', {
                 // Fetch Accounting Dimension Details for the current company and parent dimension
                 frappe.db.get_list('Accounting Dimension Detail', {
                     filters: { company: frm.doc.company, parent: dim.name },
-                    fields: ['custom_editable', 'self_balancing_ledger'],
+                    fields: ['self_balancing_ledger'],
                     parent_doctype: "Accounting Dimension"
                 }).then(child_records => {
 
@@ -28,8 +28,10 @@ frappe.ui.form.on('Journal Entry', {
                     
                     if(read_only) { 
                         frm.set_df_property(custom_fieldname, 'read_only', 0);
+                        frm.set_df_property(custom_fieldname, 'reqd', 1);
                     } else {
                         frm.set_df_property(custom_fieldname, 'read_only', 1);
+                        frm.set_df_property(custom_fieldname, 'reqd', 0);
                     }
                     
                     console.log("Setting field:", fieldname, "Read-Only:", read_only);

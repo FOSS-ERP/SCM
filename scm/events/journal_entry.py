@@ -1,6 +1,6 @@
 import frappe
 
-def validate(doc, method):
+def before_save(doc, method):
     has_payroll_entry = False
     for row in doc.accounts:
         if row.get("reference_name") and frappe.db.exists("Payroll Entry", row.get("reference_name")):

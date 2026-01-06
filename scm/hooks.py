@@ -159,7 +159,7 @@ doc_events = {
          "on_trash": "scm.events.accounting_dimention.delete_accounting_dimension_from_journal_entry",
     },
     "Journal Entry" : {
-        "validate" : "scm.events.journal_entry.validate"
+        "before_save" : "scm.events.journal_entry.before_save"
     }
 }
 # Scheduled Tasks

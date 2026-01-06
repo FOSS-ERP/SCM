@@ -1,8 +1,8 @@
 import frappe
 from frappe import _
-import erpnext.accounts.doctype.sales_invoice.sales_invoice as core_si
+from erpnext.accounts.doctype.sales_invoice.sales_invoice import SalesInvoice
 
-class CustomSalesInvocie(core_si.SalesInvoice):
+class CustomSalesInvocie(SalesInvoice):
     def disable_tax_included_prices_for_internal_transfer(self):
         if self.is_internal_transfer():
             tax_updated = False
@@ -18,4 +18,3 @@ class CustomSalesInvocie(core_si.SalesInvoice):
                     ),
                     alert=1,
                 )
-

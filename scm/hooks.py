@@ -157,6 +157,9 @@ doc_events = {
     "Accounting Dimension" : {
         "validate" : "scm.events.accounting_dimention.make_dimension_in_accounting_doctypes",
          "on_trash": "scm.events.accounting_dimention.delete_accounting_dimension_from_journal_entry",
+    },
+    "Journal Entry" : {
+        "validate" : "scm.events.journal_entry.validate"
     }
 }
 # Scheduled Tasks
